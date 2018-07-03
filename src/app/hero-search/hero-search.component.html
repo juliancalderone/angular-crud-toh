@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+  <!-- #searchBox crea la referencia a ese nodo del DOM -->
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async">
+      <!-- $| async te permite escuchar el observable -->
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
